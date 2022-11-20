@@ -1,0 +1,18 @@
+.list{
+    list-style: none;
+    width: 800px;
+    margin-top: 40px;
+}
+.img{
+    width: 300px;
+    margin-right: 60px;
+    display: block;
+    margin-bottom: 10px;
+}
+.li{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    width: 100%;
+    margin-bottom: 30px;
+}

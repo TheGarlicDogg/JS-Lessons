@@ -10,7 +10,7 @@ export default function IndexPage() {
   
   function handleClick(e) {
     e.preventDefault();
-    setContent(lastState => [{url: value1}, ...(lastState || []), ]);
+    setContent(lastState => [{url: value1, title: value2}, ...(lastState || []), ]);
   }
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/photos")
@@ -21,6 +21,7 @@ export default function IndexPage() {
     <div>
       <form onSubmit={handleClick}>
         <input type="text" value={value1} onChange={e => setValue1(e.target.value)}/>&nbsp;
+        <input type="text" value={value2} onChange={e => setValue2(e.target.value)}/>
         <Button type="submit">Добавить изображение</Button><br/>
         <Button type="button" onClick={() => setPage(p => p+1)}>
           Страница {page+1}
