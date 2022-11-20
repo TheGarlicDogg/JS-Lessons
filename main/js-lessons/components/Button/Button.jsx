@@ -1,9 +1,9 @@
 import React from 'react';
 import css from '../Button/Button.module.css'
 
-export const Button = ({ children, onClick }) => {
+export const Button = ({ children, onClick, type }) => {
   return (
-    <button type="button" onClick={onClick} className={css.button}>
+    <button type={type} onClick={onClick} className={css.button}>
         {children}
     </button>
   )

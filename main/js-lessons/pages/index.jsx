@@ -21,7 +21,7 @@ export default function IndexPage() {
     <div>
       <form onSubmit={handleClick}>
         <input type="text" value={value1} onChange={e => setValue1(e.target.value)}/>&nbsp;
-        <input type="text" value={value2} onChange={e => setValue2(e.target.value)}/>
+        <input type="text" value={value2} onChange={e => setValue2(e.target.value)}/>&nbsp;
         <Button type="submit">Добавить изображение</Button><br/>
         <Button type="button" onClick={() => setPage(p => p+1)}>
           Страница {page+1}
