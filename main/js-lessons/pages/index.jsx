@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../components/Button/Button";
 import {List} from "../components/List/List"
 
-export default function IndexPage( {data} ) {
-  const [content, setContent] = useState(data);
-  const [value1, setValue1] = useState("");
-  const [value2, setValue2] = useState("");
-  const [page, setPage] = useState(0);
+export default function IndexPage() {
+  t [content, setContent] = useState(null);
+  let [value1, setValue1] = useState("");
+  let [value2, setValue2] = useState("");
+  let [page, setPage] = useState(0);
   
   function handleClick(e) {
     e.preventDefault();
     setContent(lastState => [{url: value1, title: value2}, ...(lastState || []), ]);
   }
-  
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/photos")
+      .then(res => res.json())
+      .then(obj => setContent(obj));
+  },[])
   return (
     <div>
       <form onSubmit={handleClick}>
@@ -23,17 +27,7 @@ export default function IndexPage( {data} ) {
           Страница {page+1}
         </Button>
       </form>
-      {content && <List content={content.slice(page*10, (page+1)*10)} />} 
+      {content && <List content={content.slice(page*10, (page+1)*10)} />}
     </div>
   )
 }
-// {content && <List content={content.slice(page*10, (page+1)*10)} />}
-export async function getStaticProps(context){
-  console.log("start")
-  const obj = await fetch("https://jsonplaceholder.typicode.com/photos").then(res => res.json());
-  return {
-    props: {
-      data: obj,
-    },
-  };
-} 
