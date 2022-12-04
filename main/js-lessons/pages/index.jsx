@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "../components/Button/Button";
-import {List} from "../components/List/List"
+import React from 'react';
+import { Layout } from '../components/Layout/Layout';
+import { Nav } from '../components/Header/Nav/Nav';
+import { Button } from '../components/UI/Button/Button';
+import { Card } from '../components/Cards/Card';
+import { cardsMock } from '../constants/mock';
+import css from './index.module.css'
 
-export default function IndexPage() {
-  t [content, setContent] = useState(null);
-  let [value1, setValue1] = useState("");
-  let [value2, setValue2] = useState("");
-  let [page, setPage] = useState(0);
-  
-  function handleClick(e) {
-    e.preventDefault();
-    setContent(lastState => [{url: value1, title: value2}, ...(lastState || []), ]);
-  }
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/photos")
-      .then(res => res.json())
-      .then(obj => setContent(obj));
-  },[])
+const IndexPage = () => {
   return (
-    <div>
-      <form onSubmit={handleClick}>
-        <input type="text" value={value1} onChange={e => setValue1(e.target.value)}/>&nbsp;
-        <input type="text" value={value2} onChange={e => setValue2(e.target.value)}/>&nbsp;
-        <Button type="submit">Добавить изображение</Button><br/>
-        <Button type="button" onClick={() => setPage(p => p+1)}>
-          Страница {page+1}
-        </Button>
-      </form>
-      {content && <List content={content.slice(page*10, (page+1)*10)} />}
-    </div>
-  )
-}
+    <Layout title="indexpage">
+      <header>
+        <Nav />
+      </header>
+      <main className={css.main}>
+        <div className={css.main__title}>
+          <h1 className={css.main__logo}>The blog</h1>
+          <Button>Check this!</Button>
+        </div>
+        <section className={css.cards}>
+          {cardsMock.map(card => (
+            <Card key={card.id} {...card}/>
+          ))}
+        </section>
+      </main>
+    </Layout>
+  );
+};
+
+export default IndexPage;

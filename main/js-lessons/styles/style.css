@@ -1,0 +1,25 @@
+:root {
+    --main-color: #97184D;
+    --secondary-color: #E1AA10;
+    --text-color: #292929;
+    --background-color: #AF1F53;
+    --width: 1380px;
+}
+
+html{
+    font-size: 18px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: "Jost", sans-serif;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    max-width: var(--width);
+    margin: auto;
+}
+
+
+

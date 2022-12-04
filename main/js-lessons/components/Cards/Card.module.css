@@ -1,0 +1,30 @@
+.card{
+    width: 100%;
+    background-color: var(--background-color);
+    min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px -9px black;
+}
+.card__image{
+    position: relative;
+    padding: 30px;
+    padding-bottom: 10px;
+}
+.card__image img{
+    width: 100%;
+    max-height: 600px;
+}
+.card__about{
+    margin-left: auto;
+    width: 200px;
+    display: flex;
+    gap: 20px;
+    font-style: italic;
+}
+.card__description{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.card__content{
+    cursor: pointer;
+}

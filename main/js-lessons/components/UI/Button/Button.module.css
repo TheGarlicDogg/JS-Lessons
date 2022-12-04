@@ -1,0 +1,16 @@
+.button{
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    padding: 10px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border: solid 3px var(--background-color);
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+}
+
+.button:hover{
+    background-color: var(--main-color);
+}

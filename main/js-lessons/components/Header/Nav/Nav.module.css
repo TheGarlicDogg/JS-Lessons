@@ -1,0 +1,20 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100%-80px);
+    margin: auto;
+    background-color: var(--secondary-color);
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.nav__logo{
+    text-transform: uppercase;
+    font-style: italic;
+    color: var(--main-color);
+}
+.nav__list{
+    list-style: none;
+    display: flex;
+    gap: 15px; 
+}
