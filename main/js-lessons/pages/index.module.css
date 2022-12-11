@@ -1,0 +1,18 @@
+.main__logo{
+    text-align: center;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+}
+
+.main__title{
+    text-align: center;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 50px;
+    padding: 30px; 
+}
