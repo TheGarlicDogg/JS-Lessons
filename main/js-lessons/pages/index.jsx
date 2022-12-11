@@ -2,13 +2,12 @@ import React from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { Nav } from '../components/Header/Nav/Nav';
 import { Button } from '../components/UI/Button/Button';
-import { Card } from '../components/Cards/Card';
-import { cardsMock } from '../constants/mock';
 import css from './index.module.css'
+import { Card } from '../components/Cards/Card';
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
-    <Layout title="indexpage">
+    <Layout title="Блог">
       <header>
         <Nav />
       </header>
@@ -18,13 +17,38 @@ const IndexPage = () => {
           <Button>Check this!</Button>
         </div>
         <section className={css.cards}>
-          {cardsMock.map(card => (
-            <Card key={card.id} {...card}/>
+          {data.map((el, i) => (
+            <Card key={i} id ={i} {...el} />
           ))}
         </section>
       </main>
     </Layout>
   );
 };
+
+export async function getStaticProps(context) {
+  const result = await fetch("https://leti.kzteams.ru/api/blog/page")
+  .then(res =>{
+      if (res.ok) return res.json();
+      else throw Error(res.statusText);
+    })
+    .catch(err => console.error(err));
+  
+  if (!Array.isArray(result)) {
+    return {
+      props: {
+        data: [],
+      },
+      revalidate: 100,
+     };
+  }
+
+  return {
+    props: {
+      data: [...result],
+    },
+    revalidate: 100,
+   };
+}
 
 export default IndexPage;
