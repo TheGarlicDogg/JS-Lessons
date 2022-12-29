@@ -16,7 +16,7 @@
     white-space: pre-wrap;
 }
 .article a{
-    color: rgb(141, 141, 248);
+    color: var(--link-color);
 }
 .tags{
     display: flex;
