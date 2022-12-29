@@ -1,0 +1,28 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: min(600px, 100%);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+    font-size: 24px;
+    gap: 30px;
+}
+
+.form__inputs{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form a {
+    color: var(--link-color)
+}
+.form__inputs span{
+    font-size: 20px;
+}
+.form__inputs legend{
+    font-weight: 500;
+}

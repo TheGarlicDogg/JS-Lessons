@@ -32,7 +32,7 @@ const SignIn = () => {
     <form className={css.form} onSubmit={FormHandler}>
       <fieldset className={css.form__inputs}>
         <legend>Вход в аккаунт</legend>
-          <Input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Почта" value={email}required>
+          <Input onChange={(e) => setEmail(e.targe.value)} type="email" placeholder="Почта" value={email}required>
             Почта
           </Input>
           <Input onChange={(e) => setPassword  (e.target.value)} type="password" placeholder="Пароль" value={password}required>
