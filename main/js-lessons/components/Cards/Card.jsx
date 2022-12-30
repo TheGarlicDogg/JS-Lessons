@@ -13,8 +13,8 @@ export const Card = ({title, img, id, tags}) => {
         )} 
         <div className={css.card__content}>
             <div className={css.card__about}>
-                {tags.map((tag) => (
-                <span>{tag}</span>
+                {tags.map((tag, i) => (
+                <span key={i}>{tag}</span>
                 ))}
             </div>
             <Link href={`/blog/${id}`} className={css.card__description}>

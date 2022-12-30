@@ -27,12 +27,14 @@ const IndexPage = ({ data }) => {
 };
 
 export async function getStaticProps(context) {
-  const result = await fetch("https://leti.kzteams.ru/api/blog/page")
-  .then(res =>{
+  let result = await fetch("https://leti.kzteams.ru/api/blog/page")
+    .then(res =>{
       if (res.ok) return res.json();
       else throw Error(res.statusText);
     })
     .catch(err => console.error(err));
+
+  result = result.map(a => ({ ...a, data: ""}));
   
   if (!Array.isArray(result)) {
     return {

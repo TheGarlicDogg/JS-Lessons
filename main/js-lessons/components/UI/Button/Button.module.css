@@ -11,6 +11,11 @@
     font-size: 18px;
 }
 
+.button:disabled{
+    cursor: no-drop;
+    background-color: var(--main-color);
+}
+
 .button:hover{
     background-color: var(--main-color);
 }
