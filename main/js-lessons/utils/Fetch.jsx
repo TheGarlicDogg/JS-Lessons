@@ -1,5 +1,5 @@
 export function postFetch(endpint, bodyObj) {
-    return fetch("https://norma.nomoreparties.space/api/auth/login", {
+    return fetch(endpint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", 
@@ -7,7 +7,7 @@ export function postFetch(endpint, bodyObj) {
       redirect: "follow",
       body: JSON.stringify(bodyObj),
     })
-      .then(res=>{
+      .then(res => {
         return res.json();
       })
       .then(res => {
@@ -16,5 +16,30 @@ export function postFetch(endpint, bodyObj) {
         }
         throw Error(JSON.stringify(res));
       })
-      .catch(console.log);
+      .catch((e) => {
+        console.log(e)
+        return {};
+      });
+}
+export function getFetch(endpint, auth) {
+  return fetch(endpint, {
+    headers: {
+      Authorization: auth,
+    },
+    method: "GET",
+    redirect: "follow",
+  })
+    .then(res => {
+      return res.json();
+    })
+    .then(res => {
+      if (res.success){
+        return res;
+      }
+      throw Error(JSON.stringify(res));
+    })
+    .catch((e) => {
+      console.log(e)
+      return {};
+    });
 }
