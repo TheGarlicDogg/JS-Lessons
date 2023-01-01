@@ -16,3 +16,10 @@
     gap: 50px;
     padding: 30px; 
 }
+
+.main__info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
